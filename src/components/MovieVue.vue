@@ -26,7 +26,7 @@ const moviesStore = useMovies();
 const router = useRouter();
 const route = useRoute();
 const movieStore = useMovies();
-movieStore.setPage(route.query.page || 0);
+movieStore.setPage(route.query.page ?? 1);
 movieStore.getMovies();
 watch(
   () => movieStore.page,

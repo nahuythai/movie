@@ -17,12 +17,7 @@
 </template>
 
 <script setup>
-watch(
-  () => movieStore.page,
-  () => {
-    router.push({ name: "Home", query: { page: movieStore.page } });
-    movieStore.getMovies();
-    window.scrollTo({ top: 400, behavior: "smooth" });
-  }
-);
+import { useMovies } from "../stores/useMovies";
+
+const movieStore = useMovies();
 </script>
