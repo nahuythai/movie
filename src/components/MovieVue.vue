@@ -32,6 +32,7 @@ watch(
   () => movieStore.page,
   () => {
     router.push({ name: "Home", query: { page: movieStore.page } });
+    movieStore.movies = [];
     movieStore.getMovies();
     window.scrollTo({ top: 400, behavior: "smooth" });
   }
