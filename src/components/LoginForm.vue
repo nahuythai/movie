@@ -2,6 +2,10 @@
   <div class="max-w-[486px] w-full my-auto">
     <h1 class="text-gray-500 font-bold text-6xl mb-7">Login</h1>
     <form class="space-y-5" @submit.prevent>
+      <div class="text-secondary font-medium text-xl">
+        <p>Username: tides@gmail.com</p>
+        <p>Password: 09022000</p>
+      </div>
       <div class="relative">
         <base-input
           v-model="email"
