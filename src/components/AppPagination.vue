@@ -17,14 +17,6 @@
 </template>
 
 <script setup>
-import { watch } from "vue";
-import { useMovies } from "../stores/useMovies";
-import { useRouter, useRoute } from "vue-router";
-const router = useRouter();
-const route = useRoute();
-const movieStore = useMovies();
-movieStore.setPage(route.query.page);
-movieStore.getMovies();
 watch(
   () => movieStore.page,
   () => {

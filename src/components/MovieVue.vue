@@ -18,8 +18,22 @@ import BaseCard from "./BaseCard.vue";
 import BaseImage from "./BaseImage.vue";
 import MovieSkeleton from "./MovieSkeleton.vue";
 import { useMovies } from "../stores/useMovies";
+import { useRouter, useRoute } from "vue-router";
 import { watch } from "vue";
-const baseImageUrl = "https://image.tmdb.org/t/p/w500";
 
+const baseImageUrl = "https://image.tmdb.org/t/p/w500";
 const moviesStore = useMovies();
+const router = useRouter();
+const route = useRoute();
+const movieStore = useMovies();
+movieStore.setPage(route.query.page || 0);
+movieStore.getMovies();
+watch(
+  () => movieStore.page,
+  () => {
+    router.push({ name: "Home", query: { page: movieStore.page } });
+    movieStore.getMovies();
+    window.scrollTo({ top: 400, behavior: "smooth" });
+  }
+);
 </script>
